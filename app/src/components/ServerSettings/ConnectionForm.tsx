@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Checkbox } from '@/components/ui/checkbox';
 import {
   Form,
   FormControl,
@@ -14,10 +15,9 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Checkbox } from '@/components/ui/checkbox';
 import { useToast } from '@/components/ui/use-toast';
-import { useServerStore } from '@/stores/serverStore';
 import { usePlatform } from '@/platform/PlatformContext';
+import { useServerStore } from '@/stores/serverStore';
 
 const connectionSchema = z.object({
   serverUrl: z.string().url('Please enter a valid URL'),
@@ -73,7 +73,7 @@ export function ConnectionForm() {
                   <FormControl>
                     <Input placeholder="http://127.0.0.1:17493" {...field} />
                   </FormControl>
-                  <FormDescription>Enter the URL of your voicebox backend server</FormDescription>
+                  <FormDescription>Enter the URL of your voicetoto backend server</FormDescription>
                   <FormMessage />
                 </FormItem>
               )}

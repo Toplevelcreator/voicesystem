@@ -31,7 +31,7 @@ export const useServerStore = create<ServerStore>()(
       setKeepServerRunningOnClose: (keepRunning) => set({ keepServerRunningOnClose: keepRunning }),
     }),
     {
-      name: 'voicebox-server',
+      name: 'voicetoto-server',
     },
   ),
 );

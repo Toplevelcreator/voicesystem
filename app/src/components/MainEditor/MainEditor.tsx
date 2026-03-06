@@ -37,10 +37,10 @@ export function MainEditor() {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      if (!file.name.endsWith('.voicebox.zip')) {
+      if (!file.name.endsWith('.voicetoto.zip')) {
         toast({
           title: 'Invalid file type',
-          description: 'Please select a valid .voicebox.zip file',
+          description: 'Please select a valid .voicetoto.zip file',
           variant: 'destructive',
         });
         return;
@@ -86,7 +86,7 @@ export function MainEditor() {
         {/* Fixed Header */}
         <div className="absolute top-0 left-0 right-0 z-10">
           <div className="flex items-center justify-between mb-4 px-1">
-            <h2 className="text-2xl font-bold">Voicebox</h2>
+            <h2 className="text-2xl font-bold">Voicetoto</h2>
             <div className="flex gap-2">
               <Button variant="outline" onClick={handleImportClick}>
                 <Upload className="mr-2 h-4 w-4" />
@@ -95,7 +95,7 @@ export function MainEditor() {
               <input
                 ref={fileInputRef}
                 type="file"
-                accept=".voicebox.zip"
+                accept=".voicetoto.zip"
                 onChange={handleFileChange}
                 className="hidden"
               />

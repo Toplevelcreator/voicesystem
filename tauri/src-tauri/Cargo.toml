@@ -1,5 +1,5 @@
 [package]
-name = "voicebox"
+name = "voicetoto"
 version = "0.1.13"
 description = "A production-quality desktop app for Qwen3-TTS voice cloning and generation"
 authors = ["you"]

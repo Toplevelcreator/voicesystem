@@ -1,5 +1,5 @@
 import { invoke } from '@tauri-apps/api/core';
-import { listen, emit } from '@tauri-apps/api/event';
+import { emit, listen } from '@tauri-apps/api/event';
 import type { PlatformLifecycle } from '@/platform/types';
 
 class TauriLifecycle implements PlatformLifecycle {
@@ -45,7 +45,7 @@ class TauriLifecycle implements PlatformLifecycle {
 
         // Check if server was started by this app instance
         // @ts-expect-error - accessing module-level variable from another module
-        const serverStartedByApp = window.__voiceboxServerStartedByApp ?? false;
+        const serverStartedByApp = window.__voicetotoServerStartedByApp ?? false;
 
         if (!keepRunning && serverStartedByApp) {
           // Stop server before closing (only if we started it)

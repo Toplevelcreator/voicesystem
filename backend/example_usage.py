@@ -1,5 +1,5 @@
 """
-Example usage of the voicebox backend API.
+Example usage of the voicetoto backend API.
 
 This script demonstrates how to:
 1. Create a voice profile
@@ -150,7 +150,7 @@ def transcribe_audio(audio_file: str, language: str = None):
 def main():
     """Run example workflow."""
     print("=" * 60)
-    print("voicebox Backend API Example")
+    print("voicetoto Backend API Example")
     print("=" * 60)
     print()
     

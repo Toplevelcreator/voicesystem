@@ -21,7 +21,7 @@ def build_server():
     args = [
         'server.py',  # Use server.py as entry point instead of main.py
         '--onefile',
-        '--name', 'voicebox-server',
+        '--name', 'voicetoto-server',
     ]
 
     # Add local qwen_tts path if specified (for editable installs)
@@ -105,7 +105,7 @@ def build_server():
     # Run PyInstaller
     PyInstaller.__main__.run(args)
     
-    print(f"Binary built in {backend_dir / 'dist' / 'voicebox-server'}")
+    print(f"Binary built in {backend_dir / 'dist' / 'voicetoto-server'}")
 
 
 if __name__ == '__main__':

@@ -1,5 +1,5 @@
 """
-Entry point for PyInstaller-bundled voicebox server.
+Entry point for PyInstaller-bundled voicetoto server.
 
 This module provides an entry point that works with PyInstaller by using
 absolute imports instead of relative imports.
@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 
 # Log startup immediately to confirm binary execution
 logger.info("=" * 60)
-logger.info("voicebox-server starting up...")
+logger.info("voicetoto-server starting up...")
 logger.info(f"Python version: {sys.version}")
 logger.info(f"Executable: {sys.executable}")
 logger.info(f"Arguments: {sys.argv}")
@@ -45,7 +45,7 @@ except Exception as e:
 
 if __name__ == "__main__":
     try:
-        parser = argparse.ArgumentParser(description="voicebox backend server")
+        parser = argparse.ArgumentParser(description="voicetoto backend server")
         parser.add_argument(
             "--host",
             type=str,

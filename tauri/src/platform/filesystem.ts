@@ -1,4 +1,4 @@
-import type { PlatformFilesystem, FileFilter } from '@/platform/types';
+import type { FileFilter, PlatformFilesystem } from '@/platform/types';
 
 export const tauriFilesystem: PlatformFilesystem = {
   async saveFile(filename: string, blob: Blob, filters?: FileFilter[]) {
@@ -12,9 +12,8 @@ export const tauriFilesystem: PlatformFilesystem = {
 
     if (!filePath) return; // User cancelled the dialog
 
-    const resolvedPath = typeof filePath === 'string'
-      ? filePath
-      : (filePath as { path: string }).path;
+    const resolvedPath =
+      typeof filePath === 'string' ? filePath : (filePath as { path: string }).path;
 
     if (!resolvedPath) {
       throw new Error('Failed to resolve save path from dialog');

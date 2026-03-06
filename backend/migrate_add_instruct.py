@@ -13,11 +13,11 @@ from pathlib import Path
 def migrate():
     """Add instruct column to generations table if it doesn't exist."""
     # Get data directory
-    data_dir = os.environ.get("VOICEBOX_DATA_DIR")
+    data_dir = os.environ.get("VOICETOTO_DATA_DIR")
     if data_dir:
-        db_path = Path(data_dir) / "voicebox.db"
+        db_path = Path(data_dir) / "voicetoto.db"
     else:
-        db_path = Path.cwd() / "data" / "voicebox.db"
+        db_path = Path.cwd() / "data" / "voicetoto.db"
 
     if not db_path.exists():
         print(f"Database not found at {db_path}, skipping migration")

@@ -1,5 +1,5 @@
 """
-Configuration module for voicebox backend.
+Configuration module for voicetoto backend.
 
 Handles data directory configuration for production bundling.
 """
@@ -8,9 +8,9 @@ import os
 from pathlib import Path
 
 # Allow users to override the HuggingFace model download directory.
-# Set VOICEBOX_MODELS_DIR to an absolute path before starting the server.
+# Set VOICETOTO_MODELS_DIR to an absolute path before starting the server.
 # This sets HF_HUB_CACHE so all huggingface_hub downloads go to that path.
-_custom_models_dir = os.environ.get("VOICEBOX_MODELS_DIR")
+_custom_models_dir = os.environ.get("VOICETOTO_MODELS_DIR")
 if _custom_models_dir:
     os.environ["HF_HUB_CACHE"] = _custom_models_dir
     print(f"[config] Model download path set to: {_custom_models_dir}")
@@ -41,7 +41,7 @@ def get_data_dir() -> Path:
 
 def get_db_path() -> Path:
     """Get database file path."""
-    return _data_dir / "voicebox.db"
+    return _data_dir / "voicetoto.db"
 
 def get_profiles_dir() -> Path:
     """Get profiles directory path."""

@@ -134,11 +134,11 @@ build-web: ## Build web app
 db-init: $(VENV)/bin/activate ## Initialize SQLite database
 	@echo -e "$(BLUE)Initializing database...$(NC)"
 	cd $(BACKEND_DIR) && $(PYTHON_VENV) -c "from database import init_db; init_db()"
-	@echo -e "$(GREEN)✓ Database created at $(BACKEND_DIR)/data/voicebox.db$(NC)"
+	@echo -e "$(GREEN)✓ Database created at $(BACKEND_DIR)/data/voicetoto.db$(NC)"
 
 db-reset: ## Reset database (delete and reinitialize)
 	@echo -e "$(YELLOW)Resetting database...$(NC)"
-	rm -f $(BACKEND_DIR)/data/voicebox.db
+	rm -f $(BACKEND_DIR)/data/voicetoto.db
 	$(MAKE) db-init
 
 generate-api: ## Generate TypeScript API client from OpenAPI schema

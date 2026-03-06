@@ -6,15 +6,15 @@ set -e
 
 cd "$(dirname "$0")/.."
 
-EXPORTS_DIR="tauri/assets/voicebox_exports"
-ICON_BUNDLE="tauri/assets/voicebox.icon"
+EXPORTS_DIR="tauri/assets/voicetoto_exports"
+ICON_BUNDLE="tauri/assets/voicetoto.icon"
 ASSETS_DIR="$ICON_BUNDLE/Assets"
 ICONS_DIR="tauri/src-tauri/icons"
-LANDING_LOGO="landing/public/voicebox-logo.png"
+LANDING_LOGO="landing/public/voicetoto-logo.png"
 LANDING_PUBLIC="landing/public"
-SOURCE_ICON="$EXPORTS_DIR/voicebox-iOS-Dark-1024x1024@1x.png"
+SOURCE_ICON="$EXPORTS_DIR/voicetoto-iOS-Dark-1024x1024@1x.png"
 
-echo "🎨 Updating all Voicebox icons from exports..."
+echo "🎨 Updating all Voicetoto icons from exports..."
 echo ""
 
 # Check if source exists
@@ -31,7 +31,7 @@ echo "📦 Part 1: Compiling Liquid Glass Icon Bundle"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
-echo "Compiling voicebox.icon with actool..."
+echo "Compiling voicetoto.icon with actool..."
 # Remove old generated icons to force rebuild
 rm -rf tauri/src-tauri/gen/*.icns tauri/src-tauri/gen/Assets.car 2>/dev/null
 
@@ -39,10 +39,10 @@ cd tauri/src-tauri
 cargo build 2>/dev/null || echo "  ⚠ Cargo build had warnings (this is normal)"
 cd ../..
 
-if [ -f "tauri/src-tauri/gen/voicebox.icns" ]; then
-  echo "  ✓ voicebox.icns generated"
+if [ -f "tauri/src-tauri/gen/voicetoto.icns" ]; then
+  echo "  ✓ voicetoto.icns generated"
 else
-  echo "  ⚠ Warning: voicebox.icns not generated (will use fallback)"
+  echo "  ⚠ Warning: voicetoto.icns not generated (will use fallback)"
 fi
 
 echo ""
@@ -67,24 +67,24 @@ sips -s format png -z 512 512 "$SOURCE_ICON" --out "$ICONS_DIR/icon.png" 2>/dev/
 
 # Copy Liquid Glass compiled ICNS or generate fallback
 echo "Copying icon.icns..."
-if [ -f "tauri/src-tauri/gen/voicebox.icns" ]; then
-  cp tauri/src-tauri/gen/voicebox.icns "$ICONS_DIR/icon.icns"
+if [ -f "tauri/src-tauri/gen/voicetoto.icns" ]; then
+  cp tauri/src-tauri/gen/voicetoto.icns "$ICONS_DIR/icon.icns"
   echo "  ✓ Copied Liquid Glass compiled icon.icns"
 else
   echo "  ⚠ Liquid Glass icon not found, generating fallback icon.icns..."
-mkdir -p /tmp/voicebox-iconset.iconset
-sips -s format png -z 16 16 "$SOURCE_ICON" --out /tmp/voicebox-iconset.iconset/icon_16x16.png 2>/dev/null
-sips -s format png -z 32 32 "$SOURCE_ICON" --out /tmp/voicebox-iconset.iconset/icon_16x16@2x.png 2>/dev/null
-sips -s format png -z 32 32 "$SOURCE_ICON" --out /tmp/voicebox-iconset.iconset/icon_32x32.png 2>/dev/null
-sips -s format png -z 64 64 "$SOURCE_ICON" --out /tmp/voicebox-iconset.iconset/icon_32x32@2x.png 2>/dev/null
-sips -s format png -z 128 128 "$SOURCE_ICON" --out /tmp/voicebox-iconset.iconset/icon_128x128.png 2>/dev/null
-sips -s format png -z 256 256 "$SOURCE_ICON" --out /tmp/voicebox-iconset.iconset/icon_128x128@2x.png 2>/dev/null
-sips -s format png -z 256 256 "$SOURCE_ICON" --out /tmp/voicebox-iconset.iconset/icon_256x256.png 2>/dev/null
-sips -s format png -z 512 512 "$SOURCE_ICON" --out /tmp/voicebox-iconset.iconset/icon_256x256@2x.png 2>/dev/null
-sips -s format png -z 512 512 "$SOURCE_ICON" --out /tmp/voicebox-iconset.iconset/icon_512x512.png 2>/dev/null
-  sips -s format png -z 1024 1024 "$SOURCE_ICON" --out /tmp/voicebox-iconset.iconset/icon_512x512@2x.png 2>/dev/null
-  iconutil -c icns /tmp/voicebox-iconset.iconset -o "$ICONS_DIR/icon.icns"
-  rm -rf /tmp/voicebox-iconset.iconset
+mkdir -p /tmp/voicetoto-iconset.iconset
+sips -s format png -z 16 16 "$SOURCE_ICON" --out /tmp/voicetoto-iconset.iconset/icon_16x16.png 2>/dev/null
+sips -s format png -z 32 32 "$SOURCE_ICON" --out /tmp/voicetoto-iconset.iconset/icon_16x16@2x.png 2>/dev/null
+sips -s format png -z 32 32 "$SOURCE_ICON" --out /tmp/voicetoto-iconset.iconset/icon_32x32.png 2>/dev/null
+sips -s format png -z 64 64 "$SOURCE_ICON" --out /tmp/voicetoto-iconset.iconset/icon_32x32@2x.png 2>/dev/null
+sips -s format png -z 128 128 "$SOURCE_ICON" --out /tmp/voicetoto-iconset.iconset/icon_128x128.png 2>/dev/null
+sips -s format png -z 256 256 "$SOURCE_ICON" --out /tmp/voicetoto-iconset.iconset/icon_128x128@2x.png 2>/dev/null
+sips -s format png -z 256 256 "$SOURCE_ICON" --out /tmp/voicetoto-iconset.iconset/icon_256x256.png 2>/dev/null
+sips -s format png -z 512 512 "$SOURCE_ICON" --out /tmp/voicetoto-iconset.iconset/icon_256x256@2x.png 2>/dev/null
+sips -s format png -z 512 512 "$SOURCE_ICON" --out /tmp/voicetoto-iconset.iconset/icon_512x512.png 2>/dev/null
+  sips -s format png -z 1024 1024 "$SOURCE_ICON" --out /tmp/voicetoto-iconset.iconset/icon_512x512@2x.png 2>/dev/null
+  iconutil -c icns /tmp/voicetoto-iconset.iconset -o "$ICONS_DIR/icon.icns"
+  rm -rf /tmp/voicetoto-iconset.iconset
   echo "  ✓ Generated fallback icon.icns"
 fi
 
@@ -118,29 +118,30 @@ fi
 echo "Generating iOS icons..."
 mkdir -p "$ICONS_DIR/ios"
 
-declare -A ios_sizes=(
-  ["AppIcon-20x20@1x.png"]="20"
-  ["AppIcon-20x20@2x.png"]="40"
-  ["AppIcon-20x20@2x-1.png"]="40"
-  ["AppIcon-20x20@3x.png"]="60"
-  ["AppIcon-29x29@1x.png"]="29"
-  ["AppIcon-29x29@2x.png"]="58"
-  ["AppIcon-29x29@2x-1.png"]="58"
-  ["AppIcon-29x29@3x.png"]="87"
-  ["AppIcon-40x40@1x.png"]="40"
-  ["AppIcon-40x40@2x.png"]="80"
-  ["AppIcon-40x40@2x-1.png"]="80"
-  ["AppIcon-40x40@3x.png"]="120"
-  ["AppIcon-60x60@2x.png"]="120"
-  ["AppIcon-60x60@3x.png"]="180"
-  ["AppIcon-76x76@1x.png"]="76"
-  ["AppIcon-76x76@2x.png"]="152"
-  ["AppIcon-83.5x83.5@2x.png"]="167"
-  ["AppIcon-512@2x.png"]="1024"
+ios_sizes=(
+  "AppIcon-20x20@1x.png:20"
+  "AppIcon-20x20@2x.png:40"
+  "AppIcon-20x20@2x-1.png:40"
+  "AppIcon-20x20@3x.png:60"
+  "AppIcon-29x29@1x.png:29"
+  "AppIcon-29x29@2x.png:58"
+  "AppIcon-29x29@2x-1.png:58"
+  "AppIcon-29x29@3x.png:87"
+  "AppIcon-40x40@1x.png:40"
+  "AppIcon-40x40@2x.png:80"
+  "AppIcon-40x40@2x-1.png:80"
+  "AppIcon-40x40@3x.png:120"
+  "AppIcon-60x60@2x.png:120"
+  "AppIcon-60x60@3x.png:180"
+  "AppIcon-76x76@1x.png:76"
+  "AppIcon-76x76@2x.png:152"
+  "AppIcon-83.5x83.5@2x.png:167"
+  "AppIcon-512@2x.png:1024"
 )
 
-for filename in "${!ios_sizes[@]}"; do
-  size="${ios_sizes[$filename]}"
+for item in "${ios_sizes[@]}"; do
+  filename="${item%%:*}"
+  size="${item##*:}"
   sips -s format png -z $size $size "$SOURCE_ICON" --out "$ICONS_DIR/ios/$filename" 2>/dev/null
 done
 

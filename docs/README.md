@@ -1,6 +1,6 @@
-# Voicebox Documentation
+# Voicetoto Documentation
 
-This directory contains the documentation for Voicebox, built with [Mintlify](https://mintlify.com).
+This directory contains the documentation for Voicetoto, built with [Mintlify](https://mintlify.com).
 
 ## Development
 

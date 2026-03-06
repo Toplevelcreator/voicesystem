@@ -1,5 +1,5 @@
 """
-FastAPI application for voicebox backend.
+FastAPI application for voicetoto backend.
 
 Handles voice cloning, generation history, and server mode.
 """
@@ -49,7 +49,7 @@ from .utils.cache import clear_voice_prompt_cache
 from .platform_detect import get_backend_type
 
 app = FastAPI(
-    title="voicebox API",
+    title="voicetoto API",
     description="Production-quality Qwen3-TTS voice cloning API",
     version=__version__,
 )
@@ -71,7 +71,7 @@ app.add_middleware(
 @app.get("/")
 async def root():
     """Root endpoint."""
-    return {"message": "voicebox API", "version": __version__}
+    return {"message": "voicetoto API", "version": __version__}
 
 
 @app.post("/shutdown")
@@ -439,7 +439,7 @@ async def export_profile(
         safe_name = "".join(c for c in profile.name if c.isalnum() or c in (' ', '-', '_')).strip()
         if not safe_name:
             safe_name = "profile"
-        filename = f"profile-{safe_name}.voicebox.zip"
+        filename = f"profile-{safe_name}.voicetoto.zip"
         
         # Return as streaming response
         return StreamingResponse(
@@ -860,7 +860,7 @@ async def export_generation(
         safe_text = "".join(c for c in generation.text[:30] if c.isalnum() or c in (' ', '-', '_')).strip()
         if not safe_text:
             safe_text = "generation"
-        filename = f"generation-{safe_text}.voicebox.zip"
+        filename = f"generation-{safe_text}.voicetoto.zip"
         
         # Return as streaming response
         return StreamingResponse(
@@ -1767,7 +1767,7 @@ def _get_gpu_status() -> str:
 @app.on_event("startup")
 async def startup_event():
     """Run on application startup."""
-    print("voicebox API starting up...")
+    print("voicetoto API starting up...")
     database.init_db()
     print(f"Database initialized at {database._db_path}")
     backend_type = get_backend_type()
@@ -1796,7 +1796,7 @@ async def startup_event():
 @app.on_event("shutdown")
 async def shutdown_event():
     """Run on application shutdown."""
-    print("voicebox API shutting down...")
+    print("voicetoto API shutting down...")
     # Unload models to free memory
     tts.unload_tts_model()
     transcribe.unload_whisper_model()
@@ -1807,7 +1807,7 @@ async def shutdown_event():
 # ============================================
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="voicebox backend server")
+    parser = argparse.ArgumentParser(description="voicetoto backend server")
     parser.add_argument(
         "--host",
         type=str,
